@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Iris Flower Predictor</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            /* Add custom styles here */
+            /* Optinal: Add any custom Css styles */
+            body {
+                background-color: #f8f9fa;
+                font-family: Arial, sans-serif;
+
+            }
+
+            .container {
+                max-width: 600px;
+                margin: auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+
+            form {
+                margin-bottom: 20px;
+            }
+
+            .from-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                font-weight: bold;
+            }
+
+            .btn-primary {
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+
+            .btn-primary:hover{
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+            .btn-secondary {
+                background-color: #5a6268;
+                border-color: #545b62;
+            }
+
+            #result {
+                text-align: center;
+                font-weight: bold;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+        <h1>Iris Flower Predictor</h1>
+        <form id="predictionForm" action="/predict" method="post">
+            <div class="form-group">
+            <label for ='sepal_length'> Sepal Length: </label>
+            <input type="text" id="sepal_length" name="sepal_length"><br><br>
+            </div>
+            <div class="form-group">
+            <label for="sepal_width">Sepal Width: </label>
+            <input type="text" id="sepal_width" name="sepal_width"><br><br>
+            </div>
+            <div class="form-group">
+            <label for="petal_length">Petal Length: </label>
+            <input type="text" id="petal_length" name="petal_length"><br><br>
+            </div>
+            <div class="form-group">
+            <label for="petal_width">Petal Width: </label>
+            <input type="text" id="petal_width" name="petal_width"><br><br>
+            </div>
+
+            <button type="submit" class="btn btn-primary"> Predict</button>
+            <button type="reset" class="btn btn-secondary ml-2">Reset</button>
+        </form>
+        <div id="result" class="mt-3"></div>
+    </div>
+    <script>
+        // Client-side validation using JAVASCRIPT
+
+        var form = document.getElementById('predictionForm');
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()){
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    </script>
+    </body>
+</html>
